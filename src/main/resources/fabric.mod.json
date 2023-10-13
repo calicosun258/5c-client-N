@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "nc",
+  "version": "1.20.1-4",
+  "name": "N",
+  "description": "FifthWho \"client\" decompiled into buildable source code by Brownman_20. Original jar was provided by BSB. All your bases belong to us.",
+  "authors": [
+    "orsond",
+    "rfresh",
+    "odpay",
+    "pepsi boy",
+    "brownman_20"
+  ],
+  "contact": {},
+  "license": "All-Your-Bases-Belong-To-Us",
+  "icon": "assets/nc/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "fifthcolumn.n.client.NClient"
+    ],
+    "main": [
+      "fifthcolumn.n.NMod"
+    ],
+    "meteor": [
+      "fifthcolumn.n.modules.NAddOn"
+    ]
+  },
+  "accessWidener": "n.accesswidener",
+  "mixins": [
+    "n.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

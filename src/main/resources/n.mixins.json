@@ -1,0 +1,31 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fifthcolumn.n.mixins",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "AbstractClientPlayerEntityMixin",
+    "ClientPlayerInteractionManagerMixin",
+    "DisconnectedScreenMixin",
+    "GameMenuScreenMixin",
+    "HotbarStorageMixin",
+    "InventoryScreenMixin",
+    "LecternScreenMixin",
+    "MessageHandlerMixin",
+    "NameTagMixin",
+    "TextVisitFactoryMixin",
+    "TitleScreenMixin"
+  ],
+  "client": [
+    "ClientPlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "GameOptionsMixin",
+    "LogoDrawerMixin",
+    "PlayerListEntryMixin",
+    "PlayerListHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "n-refmap.json"
+}

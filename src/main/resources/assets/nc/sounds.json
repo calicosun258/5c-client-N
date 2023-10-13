@@ -1,0 +1,12 @@
+{
+  "shot": {
+    "sounds": [
+      "nc:shot"
+    ]
+  },
+  "cock": {
+    "sounds": [
+      "nc:cock"
+    ]
+  }
+}

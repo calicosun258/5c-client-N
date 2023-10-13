@@ -1,0 +1,97 @@
+{
+    "parent": "item/generated",
+	"textures": {
+	"layer0": "item/bow"
+	},
+    "overrides": [
+		{
+            "predicate": {
+                "pulling": 1
+            },
+            "model": "item/bow_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.65
+            },
+            "model": "item/bow_pulling_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9
+            },
+            "model": "item/bow_pulling_2"
+        },
+		{
+            "predicate": { 
+				"custom_model_data": 123
+			}, 
+			"model": "item/rifle/rifle_idle"
+        },
+        {
+            "predicate": {
+                "pulling": 0.10,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.25,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.40,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_2"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.55,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_3"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.70,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_4"
+        },
+		{
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.80,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_loading_5"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_primed"
+        },
+	{
+            "predicate": {
+                "damaged": 1,
+                "damage": 0.85,
+				"custom_model_data": 123
+            },
+            "model": "item/rifle/rifle_idle"
+        }
+    ]
+}
