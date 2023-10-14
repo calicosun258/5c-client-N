@@ -81,7 +81,7 @@ public class AutoSign extends Module {
       this.signTextLine4 = this.sgGeneral.add(new StringSetting.Builder()
               .name("Line 4")
               .description("The text to put on the sign line 4.")
-              .defaultValue(ticketNumberReplace)
+              .defaultValue("#" + ticketNumberReplace)
               .visible(() -> this.textPreset.get() == TextPreset.Custom)
               .build());
       this.editSignAura = this.sgGeneral.add(new BoolSetting.Builder()

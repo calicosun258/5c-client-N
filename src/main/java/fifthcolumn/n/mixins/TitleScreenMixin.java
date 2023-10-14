@@ -35,11 +35,10 @@ public abstract class TitleScreenMixin extends Screen {
    private static final int BG_AMT = 25;
    @Shadow
    private @Nullable SplashTextRenderer splashText;
-   private final Identifier backgroundId;
+   private final Identifier backgroundId = new Identifier("nc:" + ThreadLocalRandom.current().nextInt(1, BG_AMT+1) + ".jpg");
 
    protected TitleScreenMixin(Text title) {
       super(title);
-      this.backgroundId = new Identifier("nc:" + ThreadLocalRandom.current().nextInt(1, BG_AMT+1) + ".jpg");
    }
 
    @Inject(
