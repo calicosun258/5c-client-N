@@ -60,6 +60,11 @@ public abstract class TitleScreenMixin extends Screen {
       this.addDrawableChild(ButtonWidget.builder(Text.of("Copenheimer"), (button) -> {
          CopeMultiplayerScreen multiplayerScreen = NMod.getOrCreateMultiplayerScreen(this);
          ForkJoinPool.commonPool().submit(() -> {
+            if(NMod.COPE_OFFLINE_MODE) {
+               button.active = false;
+               button.setMessage(Text.of("Cope is disabled"));
+               return;
+            }
             Text originalTitle = button.getMessage();
             button.active = false;
             button.setMessage(Text.of("Logging in..."));

@@ -194,12 +194,16 @@ public final class CopeService {
    }
 
    private String post(String url, Object req) {
+      if(NMod.COPE_OFFLINE_MODE)
+         return "";
       String body = GSON.toJson(req);
       HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).timeout(Duration.ofSeconds(20L)).header("x-collar-membership", CollarLogin.getMembershipToken()).headers(new String[]{"x-player-name", MeteorClient.mc.getSession().getUsername()}).POST(BodyPublishers.ofString(body)).build();
       return this.execute(request);
    }
 
    private String httpGet(String url) {
+      if(NMod.COPE_OFFLINE_MODE)
+         return "";
       HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).timeout(Duration.ofSeconds(20L)).header("x-collar-membership", CollarLogin.getMembershipToken()).headers(new String[]{"x-player-name", MeteorClient.mc.getSession().getUsername()}).GET().build();
       return this.execute(request);
    }
@@ -221,6 +225,9 @@ public final class CopeService {
    }
 
    public void backgroundActiveServerUpdate() {
+      if(NMod.COPE_OFFLINE_MODE)
+         return;
+
       if (MeteorClient.mc != null) {
          ServerInfo serverEntry = MeteorClient.mc.getCurrentServerEntry();
          if (serverEntry != null) {

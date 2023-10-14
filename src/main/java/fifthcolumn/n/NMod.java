@@ -21,6 +21,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.NameGenerator;
 
 public class NMod implements ModInitializer {
+
+   // You can set this to false to enable cope service. DO THIS AT YOUR OWN RISK due to security reasons as the mod would connect to servers on the internet.
+   public static boolean COPE_OFFLINE_MODE = true;
+
    private static final Pattern STRIP_PATTERN = Pattern.compile("(?<!<@)[&§](?i)[0-9a-fklmnorx]");
    private static NMod INSTANCE;
    public static final CopeService copeService = new CopeService();

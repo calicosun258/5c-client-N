@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.UUID;
+
+import fifthcolumn.n.NMod;
 import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,9 @@ public final class CollarLogin {
    }
 
    public static boolean refreshSession() {
+      if(NMod.COPE_OFFLINE_MODE)
+         return false;
+
       RESTClient client = createClient();
 
       CollarSettings settings;
@@ -47,6 +52,9 @@ public final class CollarLogin {
    }
 
    public static LoginResult loginAndSave(String email, String password) {
+      if(NMod.COPE_OFFLINE_MODE)
+         return new LoginResult(false, "Login failed. Cope service is disabled");
+
       RESTClient client = createClient();
       return client.login(LoginRequest.emailAndPassword(email, password)).map((loginResponse) -> {
          return loginResponse.token;
