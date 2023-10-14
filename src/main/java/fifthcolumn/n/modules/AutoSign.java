@@ -6,7 +6,6 @@ import java.net.UnknownHostException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
-import java.util.Objects;
 import meteordevelopment.meteorclient.events.game.OpenScreenEvent;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
@@ -59,7 +58,7 @@ public class AutoSign extends Module {
       this.textPreset = this.sgGeneral.add(new EnumSetting.Builder<TextPreset>()
               .name("Text Preset")
               .description("What do sign say?")
-              .defaultValue(TextPreset.FifthColumn)
+              .defaultValue(TextPreset.Donfuer)
               .build());
       this.signTextLine1 = this.sgGeneral.add(new StringSetting.Builder()
               .name("Line 1")
@@ -117,17 +116,14 @@ public class AutoSign extends Module {
    }
 
    private UpdateSignC2SPacket getUpdateSignPacket(BlockPos pos, boolean front) {
-      UpdateSignC2SPacket packet;
-      switch (this.textPreset.get()) {
-         case FifthColumn:
-            packet = new UpdateSignC2SPacket(pos, front, "Rekt by", "discord.gg/", "thefifthcolumn", "#" + this.getTicketNumber());
-            break;
-         case Astral:
-            packet = new UpdateSignC2SPacket(pos, front, "Rekt by Astral", "discord.gg/", "e58M9R5TDA", "#<" + this.getTicketNumber() + ">");
-            break;
-         default:
-            packet = new UpdateSignC2SPacket(pos, front, this.replaceText(this.signTextLine1.get()), this.replaceText(this.signTextLine2.get()), this.replaceText(this.signTextLine3.get()), this.replaceText(this.signTextLine4.get()));
-      }
+      UpdateSignC2SPacket packet = switch (this.textPreset.get()) {
+         case FifthColumn ->
+                 new UpdateSignC2SPacket(pos, front, "Rekt by", "discord.gg/", "thefifthcolumn", "#" + this.getTicketNumber());
+         case Donfuer ->
+                 new UpdateSignC2SPacket(pos, front, "Rekt by Donfuer", "discord.gg/", "nDnttv9xwk", "#<" + this.getTicketNumber() + ">");
+         default ->
+                 new UpdateSignC2SPacket(pos, front, this.replaceText(this.signTextLine1.get()), this.replaceText(this.signTextLine2.get()), this.replaceText(this.signTextLine3.get()), this.replaceText(this.signTextLine4.get()));
+      };
 
       return packet;
    }
@@ -210,18 +206,13 @@ public class AutoSign extends Module {
 
          return String.valueOf(InetAddresses.coerceToInteger(address));
       } else {
-         return this.textPreset.get() == TextPreset.Astral ? "Astral on top!" : "5C ON TOP";
+         return this.textPreset.get() == TextPreset.Donfuer ? "Donfuer on top!" : "5C ON TOP";
       }
    }
 
    public enum TextPreset {
       FifthColumn,
-      Astral,
+      Donfuer,
       Custom;
-
-      // $FF: synthetic method
-      private static TextPreset[] $values() {
-         return new TextPreset[]{FifthColumn, Astral, Custom};
-      }
    }
 }

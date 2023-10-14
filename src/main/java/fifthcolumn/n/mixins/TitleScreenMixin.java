@@ -4,6 +4,9 @@ import fifthcolumn.n.NMod;
 import fifthcolumn.n.client.ui.collar.CollarLoginScreen;
 import fifthcolumn.n.client.ui.copenheimer.servers.CopeMultiplayerScreen;
 import fifthcolumn.n.collar.CollarLogin;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ThreadLocalRandom;
 import meteordevelopment.meteorclient.MeteorClient;
@@ -31,6 +34,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
    priority = 1001
 )
 public abstract class TitleScreenMixin extends Screen {
+   private static final List<SplashTextRenderer> SPLASHES = new ArrayList<>();
+
    private static final Logger LOGGER = LoggerFactory.getLogger(TitleScreenMixin.class);
    private static final int BG_AMT = 25;
    @Shadow
@@ -47,7 +52,12 @@ public abstract class TitleScreenMixin extends Screen {
    )
    private void n$modifySplashText(CallbackInfo ci) {
       if (this.splashText == null) {
-         this.splashText = new SplashTextRenderer("Grief. Cope. Seethe. Repeat.");
+         if(SPLASHES.size() == 0){
+            SPLASHES.add(new SplashTextRenderer("Bribe. Grief. Larp. Clout. Repeat."));
+            SPLASHES.add(new SplashTextRenderer("Decompiled by househousehouse1"));
+            SPLASHES.add(new SplashTextRenderer("Brought to you by The BackStreetBoys of 2b2t"));
+         }
+         this.splashText = SPLASHES.get(ThreadLocalRandom.current().nextInt(0, SPLASHES.size()));
       }
 
    }

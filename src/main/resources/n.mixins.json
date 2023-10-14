@@ -27,5 +27,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "n-refmap.json"
+  "refmap": "n_bsb_edition-refmap.json"
 }
