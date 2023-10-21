@@ -6,6 +6,9 @@ You can have full access to N "client" the Fifth columns "private" client
 
 ## Features:
 - to be documented...
+- Watch the trailer below to learn more about some of the features.
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=ulsjZUSky_I" target="_blank"> <img src="http://img.youtube.com/vi/ulsjZUSky_I/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" /></a>
 
 ### Main branch (BSB Edition)
 - New assets including some shitposts that would be seen in title screen and some other easter eggs
